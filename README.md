@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Rules of Tic Tac Toe
+The rules of the tic tac toe game are the following:
+- a game is over when all fields are taken
+- a game is over when all fields in a column are taken by a player
+- a game is over when all fields in a row are taken by a player
+- a game is over when all fields in a diagonal are taken by a player
+- a player can take a field if not already taken
+- players take turns taking fields until the game is over
+- there are two player in the game (X and O)
