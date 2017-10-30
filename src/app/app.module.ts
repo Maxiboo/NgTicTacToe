@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TableBoardComponent } from './table-board/table-board.component';
+import { BoardFieldComponent } from './board-field/board-field.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableBoardComponent
+    TableBoardComponent,
+    BoardFieldComponent
   ],
   imports: [
     BrowserModule

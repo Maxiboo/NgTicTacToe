@@ -1,0 +1,9 @@
+.table-board{
+    display: table;
+    width:600px;
+    min-width:600px;
+}
+.board-row{
+    display: table-row;
+    width:100%
+}
