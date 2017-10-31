@@ -1,9 +1,21 @@
 .table-board{
     display: table;
-    width:600px;
-    min-width:600px;
+    width:604px;
+    min-width:604px;
+    border-collapse: collapse;
+    border-bottom: 1px solid black;
 }
 .board-row{
     display: table-row;
-    width:100%
+    width:100%;
+    border-top:1px solid black;
+    border-right:1px solid black;
+}
+
+app-board-field{
+    display:table-cell;
+    width:200px;
+    height:200px;
+    border-left:1px solid black;    
+    box-sizing: border-box;
 }
