@@ -9,8 +9,7 @@ export class BoardFieldComponent implements OnInit {
   @Input() x:Number;
   @Input() y:Number;
   figure : string = "none";
-
-
+  
   constructor() { }
 
   ngOnInit() {
@@ -18,8 +17,7 @@ export class BoardFieldComponent implements OnInit {
   
   fillWithFigure(data){
     console.log("change figure at ("+this.x+","+this.y+") from "+this.figure)
-    if(this.figure == "none" || this.figure == "circle" ){
-      
+    if(this.figure == "none" || this.figure == "circle" ){      
       this.figure = "cross";      
     }
     else{
