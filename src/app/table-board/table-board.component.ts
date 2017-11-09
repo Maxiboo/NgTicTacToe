@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableBoardComponent implements OnInit {
 
+  xCoordinates: Number[] = [0, 1, 2];
+  yCoordinates: Number[] = [0, 1, 2];
+
   constructor() { }
 
   ngOnInit() {
