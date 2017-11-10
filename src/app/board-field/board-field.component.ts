@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { PlayerService } from '../player.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { PlayerService, Player } from '../player.service';
 import { GameService } from '../game.service';
 
 @Component({
@@ -9,28 +9,33 @@ import { GameService } from '../game.service';
 })
 export class BoardFieldComponent {
   @Input() x:number;
-  @Input() y:number;
-  figure : string = "none";
+  @Input() y: number;
+  @Output() playerMove: EventEmitter<any> = new EventEmitter();
+  playerOnThisField: Player = Player.None;
+  figureClass : string = "none";
 
   constructor(private playerService: PlayerService, private gameService: GameService) {
 
   }
   
   fillWithFigure(data){
-    console.debug("change figure at (" + this.x + "," + this.y + ") from " + this.figure)
-    this.playerService.isPlayerOne;
+    if (this.playerOnThisField === Player.None) {
 
-    if (this.figure === "none") {
-      this.figure = this.playerService.isPlayerOne ? "cross" : "circle"
-      this.gameService.gameBoardState[this.x * 3 + this.y] = this.playerService.isPlayerOne;
-
-      this.playerService.isPlayerOne = !this.playerService.isPlayerOne;
+      this.playerOnThisField = this.playerService.currentPlayer;
+      this.gameService.gameBoardState[this.x * 3 + this.y] = this.playerOnThisField;
+      this.playerService.swapCurrentPlayer();
 
       if (this.gameService.checkEndGame()) {
         console.log("FIN DU JEU !!!!!");
       }
     }
-    
-    console.debug("change figure to "+this.figure)
+  }
+
+  private getPlayerFigureClass(): string {
+    if (this.playerOnThisField === Player.Cross)
+      return "cross";
+    if (this.playerOnThisField === Player.Circle)
+      return "circle";
+    return "none";
   }
 }

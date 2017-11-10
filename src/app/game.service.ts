@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Player } from './player.service';
 
 @Injectable()
 export class GameService {
 
-  gameBoardState: Boolean[] = [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]
+  gameBoardState: Player[] = [Player.None, Player.None, Player.None, Player.None, Player.None, Player.None, Player.None, Player.None, Player.None]
+  victoryPlayer: string = "";
 
   constructor() { }
 
-  checkEndGame(): Boolean {
-    if (this.gameBoardState.indexOf(undefined) === -1)
+  checkEndGame(): boolean {
+    if (this.gameBoardState.indexOf(Player.None) === -1)
       return true;
+
     return false;
+  }
+
+  GetVictoryPlayer(): string {
+    return this.victoryPlayer;
   }
 }
