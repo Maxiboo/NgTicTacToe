@@ -22,9 +22,10 @@ export class BoardFieldComponent {
     if (this.playerOnThisField === Player.None) {
 
       this.playerOnThisField = this.playerService.currentPlayer;
-      this.gameService.gameBoardState[this.x * 3 + this.y] = this.playerOnThisField;
+      this.gameService.gameBoardState[this.x][this.y] = this.playerOnThisField;
+      this.gameService.lastMoveCoordinateX = this.x;
+      this.gameService.lastMoveCoordinateY = this.y;
       this.playerService.swapCurrentPlayer();
-
       if (this.gameService.checkEndGame()) {
         console.log("FIN DU JEU !!!!!");
       }

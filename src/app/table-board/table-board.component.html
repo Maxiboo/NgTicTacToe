@@ -1,5 +1,5 @@
 <div class="table-board">
-  <div class="board-row" *ngFor="let x of xCoordinates">
-    <app-board-field *ngFor="let y of yCoordinates" [x]="x" [y]="y"></app-board-field>
+  <div class="board-row" *ngFor="let y of yCoordinates">
+    <app-board-field *ngFor="let x of xCoordinates" [x]="x" [y]="y"></app-board-field>
   </div>
 </div>
